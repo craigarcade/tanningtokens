@@ -26,9 +26,9 @@ def home():
                 data_to_send = {'token_count': note_value, 'user_id': current_user.id}
                 print(data_to_send)
                 # Make the POST request to the other Flask server
-                response = requests.post('http://192.168.1.190:80/redeem-notification', json=data_to_send)
-                print(response.status_code)  # Print the response status code
-                print(response.json())  # Print the JSON response from the server
+                #response = requests.post('http://192.168.1.190:80/redeem-notification', json=data_to_send)
+                #print(response.status_code)  # Print the response status code
+                #print(response.json())  # Print the JSON response from the server
                 if current_note < 0:
                     current_note = 0  # Ensure the note cannot go below 0
                 if note:
