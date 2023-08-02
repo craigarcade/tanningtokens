@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1 align="center">Your Sun Bed Tokens</h1>
+<h1 align="center">Username: {{ user.first_name }} </h1>
+<ul class="list-group list-group-flush" id="notes">
+  {% for note in user.notes %}
+  <li class="list-group-item" style="font-size: 20px; line-height: 1.5; padding: 10px;">
+    {{ note.data }}
+    <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+<form method="POST">
+  <input type="hidden" name="action" id="action" value="" />
+  <textarea name="note" id="note" class="form-control"></textarea>
+  <br />
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary" onclick="setAction('redeem')">Redeem Tokens</button>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary" onclick="setAction('purchase')">Purchase Tokens</button>
+    </div>
+  </div>
+</form>
+
+<script>
+  function setAction(action) {
+    document.getElementById('action').value = action;
+  }
+</script>
+{% endblock %}
